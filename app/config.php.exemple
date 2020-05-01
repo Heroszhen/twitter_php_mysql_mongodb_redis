@@ -1,0 +1,10 @@
+<?php
+
+return array(
+	"host" => "",
+	"dbname" => "",
+	"username" => "",
+	"password" => "",
+	"mongodbhost" => "",
+	"mongodb_dbname" => ""
+);

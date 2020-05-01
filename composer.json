@@ -1,0 +1,26 @@
+{
+    "name": "zhen/frameworkphp3wa",
+    "description": "learn to create a framework php",
+    "authors": [
+        {
+            "name": "zhen yang",
+            "email": "zhen.yang@hotmail.fr"
+        }
+    ],
+    "require": {
+        "nikic/fast-route": "^1.3",
+        "twig/twig": "^2.0",
+        "mongodb/mongodb": "^1.6",
+        "fzaninotto/faker": "^1.9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\":"src/",
+            "Frameworkphp3wa\\":"app/frameworkphp3wa/",
+            "Fixtures\\":"DataFixtures/"
+        }
+    }
+}

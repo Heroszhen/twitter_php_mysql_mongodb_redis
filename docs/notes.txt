@@ -1,0 +1,53 @@
+php -S localhost:8000 -t public
+composer require mongodb/mongodb
+
+composer require fzaninotto/faker
+https://github.com/fzaninotto/Faker
+
+composer require predis/predis
+
+
+mysql
+1.user
+id ,email , password, name , created, status
+
+2.follow
+followerid, followedid
+
+
+mongodb
+1.post
+{
+	_id:
+	userid:
+	content:
+	created:
+	comments:[
+		{
+			id:
+			userid:
+			created:
+			comment:
+		}
+	]
+}
+
+
+redis
+1.news
+title, content, created,
+
+
+
+
+info:
+zhen@gmail.com
+@abc123
+
+
+
+
+
+to Framework
+change router.php
+add service

@@ -1,0 +1,32 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<div id="homelogup" class="container">
+	<div class="row justify-content-center">
+		<h1 class="col-12 text-center mb-5">Inscription</h1>
+		<div class="col-md-6">
+			{% if flash != null %}
+				<div class="mt-1 mb-1">
+					<div class="alert alert-{{flash.type}}">{{flash.message|raw}}</div>
+				</div>
+			{% endif %}
+			<form method="POST" action="/logup">
+				<div class="form-group">
+				    <label for="name">Nom</label>
+				    <input type="text" class="form-control" id="name" name="name" value="{{post.name}}">
+				</div>
+				<div class="form-group">
+				    <label for="email">Email</label>
+				    <input type="email" class="form-control" id="email" name="email" value="{{post.email}}">
+				</div>
+				<div class="form-group">
+				    <label for="password">Mot de passe</label>
+				    <input type="password" class="form-control" id="password" name="password" value="{{post.password}}">
+				</div>
+				<button type="submit" class="btn btn-primary">Envoyer</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
