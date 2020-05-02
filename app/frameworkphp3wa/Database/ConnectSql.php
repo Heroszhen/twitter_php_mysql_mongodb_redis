@@ -22,6 +22,9 @@ class ConnectSql{
                         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
                     )
                 );
+            }elseif($db == "redis"){
+                $client = new \Predis\Client();
+                self::$db = $client;
             }
             
         }

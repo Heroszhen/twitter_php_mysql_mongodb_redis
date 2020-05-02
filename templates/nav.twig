@@ -10,18 +10,22 @@
       <li class="nav-item">
         <a class="nav-link" href="/">Mes abonnées</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/">Mes posts</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Admin
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/admin/reservation">Les réservations</a>
-          <a class="dropdown-item" href="#">Another action</a>
-        </div>
-      </li>
+      {% if session.user and session.user != null %}
+        <li class="nav-item">
+          <a class="nav-link" href="/profil/{{session.user.id}}">Mon profil</a>
+        </li>
+      {% endif %}
+      {% if session.user and session.user != null and session.user.status == "ADMIN" %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Admin
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/admin/infos">Les Actualités</a>
+            <a class="dropdown-item" href="#">Another action</a>
+          </div>
+        </li>
+      {% endif %}
     </ul>
     <div>
     {% if session.user or session.user != null %}

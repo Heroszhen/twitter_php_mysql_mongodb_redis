@@ -2,9 +2,15 @@
 
 {% block content %}
 <div id="home" class="container pt-3">
-    <div class="row">
-        <h1 class="col-12 text-center">Bienvenue</h1>
-        
+    <div class="row justify-content-center">
+        <h1 class="col-12 text-center h1 mb-5">Bienvenue</h1>
+        {% for one in allinfos %}
+        	<div class="col-md-8 mb-3">
+        		<a class="text-primary h5" href="/infos/{{one.infosid}}">{{one.title}}</a><br>
+        		{{one.created|date("d/m/Y")}}<br>
+        		{{one.content|slice("0","50")|raw}} ...<br>
+        	</div>
+        {% endfor %}
     </div>
 </div>
 

@@ -6,16 +6,18 @@ use Frameworkphp3wa\AbstractController;
 use Frameworkphp3wa\FlashBag;
 use App\Entity\User;
 use App\Repository\UserRepository;
+use App\Entity\Infos;
+use App\Repository\InfosRepository;
 use App\Service\EntityService;
 
 class HomeController extends AbstractController{
 
     public function index(){
-        $flash = new FlashBag();
-        $flash->empty();
-        $flash->set("exemple flashbag message","info");
+        $ir = new InfosRepository();
+        $allinfos = $ir->getAllInfos();
+        
         return $this->render("home.index.twig",[
-            "flash" => $flash->get()
+            "allinfos" => $allinfos
         ]);
     }
 

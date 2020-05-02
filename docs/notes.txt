@@ -5,6 +5,7 @@ composer require fzaninotto/faker
 https://github.com/fzaninotto/Faker
 
 composer require predis/predis
+https://scotch.io/tutorials/getting-started-with-redis-in-php
 
 
 mysql
