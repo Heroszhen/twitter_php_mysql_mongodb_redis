@@ -12,7 +12,7 @@ class InfosFixtures{
 			$infos = new Infos();
 			$infos->setId("infos_".uniqid());
 			$infos->setTitle($faker->sentence($nbWords = 10, $variableNbWords = true));
-			$infos->setContent($faker->text);
+			$infos->setContent($faker->text($minNbChars = 1000)  );
 			$infos->setCreated(($faker->dateTime($max = 'now', $timezone = null))->format('Y-m-d h:i:s'));
 			$ir->addInfos($infos);
 		}

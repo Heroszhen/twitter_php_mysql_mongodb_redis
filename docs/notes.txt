@@ -17,7 +17,7 @@ followerid, followedid
 
 
 mongodb
-1.post
+1.Message
 {
 	_id:
 	userid:

@@ -21,6 +21,14 @@ class HomeController extends AbstractController{
         ]);
     }
 
+    public function oneInfos($key){
+        $ir = new InfosRepository();
+        $infos = $ir->getOneInfos($key);
+        return $this->render("home.oneinfos.twig",[
+            "infos" => $infos
+        ]);
+    }
+
     public function logup($post=null){
     	$flash = new FlashBag();
         $flash->empty();

@@ -25,6 +25,9 @@ class ConnectSql{
             }elseif($db == "redis"){
                 $client = new \Predis\Client();
                 self::$db = $client;
+            }elseif($db == "mongodb"){
+                $client = new Client('mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false');
+                self::$db = $client->twitter;
             }
             
         }

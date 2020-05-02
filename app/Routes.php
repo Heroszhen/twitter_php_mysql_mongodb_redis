@@ -12,6 +12,7 @@ return function(RouteCollector $r) {
     $r->addRoute('GET', '/login',array(new App\Controller\HomeController($_GET["twig"]), "login",[]));
     $r->addRoute('POST', '/login',array(new App\Controller\HomeController($_GET["twig"]), "login",[$_POST]));
     $r->addRoute('GET', '/logout',array(new App\Controller\HomeController($_GET["twig"]), "logout",[]));
+    $r->addRoute('GET', '/infos/{id}',array(new App\Controller\HomeController($_GET["twig"]), "oneInfos",[]));
 
 
     $r->addRoute('GET', '/admin/infos',array(new App\Controller\admin\AdminInfosController($_GET["twig"]), "index",[]));

@@ -33,6 +33,15 @@ class InfosRepository extends AbstractRepository{
 		return $response;
     }
 
+    public function getOneInfos($key){
+        $response;
+        $response = $this->db->hgetall($key);
+        $response["created"] = new \DateTime($response["created"]);
+        $response["infosid"] = $key;
+
+        return $response;
+    }
+
     public function deleteInfos($key){
 		$this->db->del($key, 'title');
         $this->db->del($key, 'content');
