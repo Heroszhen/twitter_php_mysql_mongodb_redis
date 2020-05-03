@@ -37,4 +37,43 @@ class UserRepository extends AbstractRepository{
     	return $response;
     }
 
+    public function getNameById($id){
+    	$response = false;
+    	$query = "select name from user where id = :id";
+		$result = $this->execRequete($query,[
+			"id" => $id
+		]);
+		$response = $result->fetch();
+		
+		return $response;
+    }
+
+    public function checkFollowed($followerid, $followedid){
+    	$response = false;
+    	$query = "select * from follow where follower = :follower and followed = :followed";
+		$result = $this->execRequete($query,[
+			"follower" => $followerid,
+			"followed" => $followedid
+		]);
+		$response = $result->fetch();
+		
+		return $response;
+    }
+
+    public function follow($tab){
+    	if($tab[1] == 1){
+    		$query = "insert into follow (follower, followed) values (:follower, :followed)";
+			$this->execRequete($query,[
+				"follower" => $_SESSION['user']['id'],
+				"followed" => $tab[0]
+			]);
+    	}elseif($tab[1] == 0){
+    		$query = "delete from follow where follower = :follower and followed = :followed";
+			$this->execRequete($query,[
+				"follower" => $_SESSION['user']['id'],
+				"followed" => $tab[0]
+			]);
+    	}
+    }
+
 }

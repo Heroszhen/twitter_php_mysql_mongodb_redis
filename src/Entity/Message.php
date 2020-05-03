@@ -7,7 +7,7 @@ class Message{
     private $userid;
     private $content;
     private $created;
-    private $comments;
+    private $comments = [];
 
     /**
      * Get the value of id

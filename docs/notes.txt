@@ -19,7 +19,7 @@ followerid, followedid
 mongodb
 1.Message
 {
-	_id:
+	id:
 	userid:
 	content:
 	created:

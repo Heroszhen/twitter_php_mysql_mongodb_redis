@@ -1,0 +1,46 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<div id="home" class="container pt-3">
+    <div class="row justify-content-center">
+        <h1 class="col-12 text-center h1 mb-2">{{user.name}}</h1>
+        {% if session.user.id != id %}
+            <div class="col-md-8 col-lg-7 text-center">
+                {% if followed == true %}
+                    <a class="btn btn-outline-danger" href="/profil/follow/{{id}}_0">Ne plus suivre</a>
+                {% else %}
+                    <a class="btn btn-outline-success" href="/profil/follow/{{id}}_1">Suivre</a>
+                {% endif %}
+            </div>
+        {% endif %}
+        {% if session.user.id == id %}
+            <div class="col-md-8 col-lg-7 mt-4">
+                <form method="POST" action="/profil/{{session.user.id}}" class="border border-success rounded p-2">
+                    <h5>Créer un post</h5>
+                    {% if flash != null %}
+                        <div class="mt-1 mb-1">
+                            <div class="alert alert-{{flash.type}}">{{flash.message|raw}}</div>
+                        </div>
+                    {% endif %}
+                    <div class="form-group">
+                        <label for="messagecontent">Texte</label>
+                        <textarea class="form-control" id="messagecontent" name="messagecontent" rows="2">{{post.messagecontent}}</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+    <div class="row justify-content-center mt-5">
+        {% for one in hismessages %}
+            <div class="col-md-8 col-lg-7">
+                <div class="border p-2">
+                    {{one.content}}<br>
+                    <small>{{one.created|date('d/m/Y h:i:s')}}</small>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
