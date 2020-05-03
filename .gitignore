@@ -1,6 +1,8 @@
 /vendor/
 app/config.php
 
-*.html linguist-detectable=true
+*.php linguist-detectable=true
+*.html linguist-detectable=false
 *.css linguist-detectable=false
-*.js linguist-detectable=true
+*.js linguist-detectable=false
+
